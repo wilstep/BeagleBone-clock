@@ -106,6 +106,7 @@ int main()
         nums.display(min%10, 0);
         nums.display(min/10, 1);
         if(hour > 12) hour -= 12;
+        if(hour == 0) hour = 12;
         nums.display(hour%10, 2);
         nums.display(hour/10, 3);
         usleep(20000); // sleep for 40ms
