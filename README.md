@@ -1,4 +1,6 @@
 # BeagleBone 12hr Clock  
+![alt text](https://raw.githubusercontent.com/wilstep/BeagleBone-clock/master/setup.jpg)
+
 This project makes use of a 4 digit LCD display to form a 12hr clock. The project makes extensive use of the BeagleBone's GPIO ports to run the display. Because 23 GPIO ports are used it is necessary to make use of a custom device tree overlay, to change the modes on some of the ports. The number of GPIO ports could be reduced to 14 by using three 7-segment decoders (note: the left most digit either displays numeral 1 or nothing, and thus is controlled with only 2 GPIO ports), and then the custom device tree wouldn't be needed. A picture of my setup is given in 'clock.jpg'. The display is kept in sync with the BeagleBone's internal clock by the C++ program `clock.cpp`.
 
 I used the following LCD display, (https://www.jaycar.com.au/4-digit-field-effect-lcd/p/ZD1886), which is rated for 3V. This was powered directly with the 3.3v GPIO signals, which have slightly too much voltage. It might be better to reduce the voltage to 3V using resistor voltage dividers (the LCD takes very little current), but this would be a lot of messing around. Instead I used some crude pulse width modulation (pwm) from software (crude because the voltage isn't smoothed).
