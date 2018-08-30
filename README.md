@@ -33,16 +33,16 @@ The program uses an infinite loop: to terminate it you can find the process id n
 
 ## The LKM C code
 The program may be found in the `lkm` subdirectory. You must have the kernel headers for your kernel installed in order to compile this. On my BBB the following  
-`apt-cache search linux-headers-$(uname -r)` output
-`linux-headers-4.1.15-ti-rt-r43 - Linux kernel headers for 4.1.15-ti-rt-r43 on armhf`
+`apt-cache search linux-headers-$(uname -r)` results in output  
+`linux-headers-4.1.15-ti-rt-r43 - Linux kernel headers for 4.1.15-ti-rt-r43 on armhf`  
 To compile go into the subdirectory and issue the command `make`  
 To load the LKM type  
-`sudo insmod kclock.ko`
+`sudo insmod kclock.ko`  
 or if you wish to offset the time for you local time zone, add the seconds (10hrs = 36,000 secs in my case)  
 `insmod kclock.ko offset=36000`  
 To unload the LKM  
 `sudo rmmod kclock`  
-The LKM writes to the kernel log. You can monitor this from the su account
+The LKM writes to the kernel log. You can monitor this from the su account  
 `cd /var/log`  
 `tail -f kern.log`
 
