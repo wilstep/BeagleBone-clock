@@ -1,4 +1,4 @@
-# BeagleBone 12hr Clock  
+# BeagleBone 12 hour Clock  
 ![alt text](https://raw.githubusercontent.com/wilstep/BeagleBone-clock/master/setup.jpg)
 
 This project makes use of a 4 digit LCD display to form a 12hr clock. There are two separate programs that achieve this same end. The first is written in C++ and runs at the user level, while the second is written in C and is a loadable kernel module (LKM) running inside the kernel. The project makes extensive use of the BeagleBone's GPIO ports to run the display. Because 23 GPIO ports are used it is necessary to make use of a custom device tree overlay, to change the modes on some of the ports. The number of GPIO ports could be reduced to 8 by using four 7-segment decoders with latching (note: one could then make a 24hr clock), and then the custom device tree wouldn't be needed. A picture of my setup is given above and in 'clock.jpg'. The display is kept in sync with the BeagleBone's internal clock by the C++ program `clock.cpp` or alternatively by the LKM which may be compiled from `kclock.c`.
